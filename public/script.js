@@ -10,5 +10,5 @@ fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Winnipeg', o
 	.then(response => response.json())
 	.then(response => {console.log(response)
 	
-	document.getElementById("nameId").innerHTML = "hello sir"})
+	document.getElementById("temperature").innerHTML = response.temp})
 	.catch(err => console.error(err));
