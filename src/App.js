@@ -2,6 +2,7 @@
 import './App.css'
 import InputNavigation from './InputNavigation';
 import TemperatureCard from './TemperatureCard';
+import Weekforecast from './Weekforecast';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <div className='container'>
     <InputNavigation/>
     <TemperatureCard/>
+    <Weekforecast></Weekforecast>
     
       
     </div> );

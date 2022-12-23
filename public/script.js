@@ -1,12 +1,3 @@
-// document.getElementById("feelsLike").innerHTML = response.feels_like;
-//     document.getElementById("temperature").innerHTML = response.temp;
-//     document.getElementById("humidity").innerHTML = response.humidity;
-//     document.getElementById("sunrise").innerHTML = response.sunrise;
-//     document.getElementById("sunset").innerHTML = response.sunset;
-//     document.getElementById("windSpeed").innerHTML = response.wind_speed;
-//     document.getElementById("maxTemp").innerHTML = response.max_temp;
-//     document.getElementById("minTemp").innerHTML = response.min_temp;
-//     // document.getElementById("precipitation").innerHTML = response.cloud_pct;
 
 const options = {
   method: "GET",
@@ -33,6 +24,7 @@ fetch(
     document.getElementById("name").innerHTML = response.location.name;
     // document.getElementById("region").innerHTML = response.location.region;
     document.getElementById("condition").innerHTML = response.current.condition.text;
+    // document.getElementById("imgSrc").innerHTML = response.current.condition.icon
     // document.getElementById("tz_id").innerHTML = response.tz_id;
 
 document.getElementById("feelslike_c").innerHTML = response.current.feelslike_c;
@@ -50,6 +42,7 @@ document.getElementById("pressure_in").innerHTML = response.current.pressure_in;
 document.getElementById("temp_c").innerHTML = response.current.temp_c;
 // document.getElementById("temp_f").innerHTML = response.current.temp_f;
 document.getElementById("uv").innerHTML = response.current.uv;
+
 document.getElementById("vis_km").innerHTML = response.current.vis_km;
 // document.getElementById("vis_miles").innerHTML = response.current.vis_miles;
 // document.getElementById("wind_degree").innerHTML = response.current.wind_degree;
@@ -61,4 +54,5 @@ document.getElementById("mintemp_c").innerHTML = response.forecast.forecastday[0
 
   })
   .catch((err) => console.error(err));
-
+  
+ 

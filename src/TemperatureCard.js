@@ -1,15 +1,21 @@
-import React from "react";
+
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+
 
 import Stack from "react-bootstrap/Stack";
+export var citName = "london";
 
 function TemperatureCard() {
+
+
   return (
     <Card style={{ width: "30rem" }}>
-      {/* <Card.Img variant="top" src="holder.js/100px180?text=Image cap" /> */}
+      {/* <Card.Img  variant="top" src={imgsrc} /> */}
+      
       <div className= "py-3 mx-auto" id="name"></div>
       <Card.Body>
         <Card.Title>
@@ -21,8 +27,9 @@ function TemperatureCard() {
           </Stack>
           
         </Card.Title>
-        <Card.Text>
+        <Card.Text >
           Feels like:<span id="feelslike_c"></span>
+
           <span id="condition"></span>
         </Card.Text>
       </Card.Body>
@@ -31,7 +38,7 @@ function TemperatureCard() {
         
       <Row>
         <Col>Humidity: <span id="humidity"></span>%</Col>
-        <Col>Precipitation: <span id="precip_mm"></span>mm</Col>
+        <Col>Precipitation: <span id="precip_mm"></span> mm</Col>
       </Row>
       
   
@@ -40,13 +47,15 @@ function TemperatureCard() {
         <ListGroup.Item>
             
       <Row>
-        <Col>Pressure: <span id="pressure_in"></span>in</Col>
-        <Col>Visibility: <span id="vis_km"></span>km</Col>
+        <Col>Pressure: <span id="pressure_in"></span>  in</Col>
+        <Col>Visibility: <span id="vis_km"></span> km</Col>
       </Row>
         </ListGroup.Item>
         <ListGroup.Item> <Row>
-        <Col>Wind Speed: <span id="wind_kph"></span>km/h</Col>
-        <Col>UV: <span id="uv"></span></Col>
+        <Col>Wind Speed: <span id="wind_kph"></span> km/h</Col>
+        <Col>UV: <span id="uv"></span>
+        
+        <ProgressBar  variant="warning" now={40} /></Col>
       </Row></ListGroup.Item>
       </ListGroup>
       <Card.Body></Card.Body>

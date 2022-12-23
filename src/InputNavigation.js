@@ -3,7 +3,7 @@ import React from "react";
 function InputNavigation(props) {
   return (
     <div>
-      <nav className ="navbar navbar-expand-lg bg-success my-3">
+      <nav className ="navbar navbar-expand-lg bg-info my-3">
         <div className ="container-fluid">
           <a className ="navbar-brand" href=" ">
             WEATHER CHECK
