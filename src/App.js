@@ -11,7 +11,7 @@ function App() {
     <InputNavigation/>
     <TemperatureCard/>
     
-      <h1 id = "nameId">hello veere</h1> 
+      
     </div> );
 }
 
