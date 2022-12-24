@@ -1,6 +1,7 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import SingleDayForecast from './SingleDayForecast';
 
 
 function Weekforecast(props) {
@@ -15,10 +16,10 @@ function Weekforecast(props) {
           
         </Tab>
         <Tab eventKey="profile" title="Profile">
-          
+        <SingleDayForecast/>
         </Tab>
         <Tab eventKey="longer-tab" title="Loooonger Tab">
-             
+
         </Tab>
        
       </Tabs>

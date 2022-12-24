@@ -1,62 +1,57 @@
-
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 import Stack from "react-bootstrap/Stack";
-export var citName = "london";
 
-function TemperatureCard() {
-
-
+function TemperatureCard(props) {
   return (
     <Card style={{ width: "30rem" }}>
-      {/* <Card.Img  variant="top" src={imgsrc} /> */}
-      
-      <div className= "py-3 mx-auto" id="name"></div>
+      {/* <Card.Img variant="top" src={props.allValues.imgIcon} /> */}
+
+      <div className="py-3 mx-auto">{props.allValues.cityName}</div>
       <Card.Body>
         <Card.Title>
-        <Stack direction="horizontal" gap={3}>
-            <div className="bg-light ms-auto"><span id="temp_c"></span>&deg;C</div>
-            <div className="bg-light ms-auto">H<span id="maxtemp_c"></span>&deg;C</div>
+          <Stack direction="horizontal" gap={3}>
+            <h1 className="ms-auto">
+              <img alt="weatherImage" src={props.allValues.imgIcon}></img>
+              {props.allValues.temp}&deg;C
+            </h1>
+            <h6 className="ms-auto">H{props.allValues.maxTemp}&deg;C</h6>
             <div className="vr" />
-            <div className="bg-light">L<span id="mintemp_c"></span>&deg;C</div>
+            <h6 className="bg-light">L{props.allValues.minTemp}&deg;C</h6>
           </Stack>
-          
         </Card.Title>
-        <Card.Text >
-          Feels like:<span id="feelslike_c"></span>
-
-          <span id="condition"></span>
+        <Card.Text>
+          Feels like:{props.allValues.feelsLike}&deg;C
+          {props.allValues.condition} weather
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>
-        
-      <Row>
-        <Col>Humidity: <span id="humidity"></span>%</Col>
-        <Col>Precipitation: <span id="precip_mm"></span> mm</Col>
-      </Row>
-      
-  
-
+          <Row>
+            <Col>Humidity:{props.allValues.humidity}%</Col>
+            <Col>Precipitation: {props.allValues.precp}mm</Col>
+          </Row>
         </ListGroup.Item>
         <ListGroup.Item>
-            
-      <Row>
-        <Col>Pressure: <span id="pressure_in"></span>  in</Col>
-        <Col>Visibility: <span id="vis_km"></span> km</Col>
-      </Row>
+          <Row>
+            <Col>Pressure: {props.allValues.pressure} in</Col>
+            <Col>Visibility: {props.allValues.visibility} km</Col>
+          </Row>
         </ListGroup.Item>
-        <ListGroup.Item> <Row>
-        <Col>Wind Speed: <span id="wind_kph"></span> km/h</Col>
-        <Col>UV: <span id="uv"></span>
-        
-        <ProgressBar  variant="warning" now={40} /></Col>
-      </Row></ListGroup.Item>
+        <ListGroup.Item>
+          {" "}
+          <Row>
+            <Col>Wind Speed: {props.allValues.windSpeed} km/h</Col>
+            <Col>
+              UV: {props.allValues.uv}
+              <ProgressBar variant="warning" now={10} />
+            </Col>
+          </Row>
+        </ListGroup.Item>
       </ListGroup>
       <Card.Body></Card.Body>
     </Card>
