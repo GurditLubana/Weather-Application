@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import InputNavigation from './InputNavigation';
 import TemperatureCard from './TemperatureCard';
@@ -14,6 +14,17 @@ function App() {
     }]
   );
 
+  const [todaysForecast,setForecast] = useState([{}])
+  const [tmmrwsForecast,setForecast2] = useState([{}])
+  const [dayafterForecast,setForecast3] = useState([{}])
+
+
+
+  useEffect(()=>{
+        fetchData()
+  },[])
+
+  const fetchData = ()=>{
   const options = {
     method: "GET",
     headers: {
@@ -27,7 +38,7 @@ function App() {
     options
   )
     .then((response) => response.json())
-    .then((response) => {console.log(response)
+    .then((response) => { console.log(response)
     
       setValues({
         temp:response.current.temp_c,
@@ -44,16 +55,19 @@ function App() {
         windSpeed:response.current.wind_kph,
         imgIcon:response.current.condition.icon
       })
+      setForecast(response.forecast.forecastday[0].hour);
+      setForecast2(response.forecast.forecastday[1].hour);
+      setForecast3(response.forecast.forecastday[2].hour);
 
     })
     .catch((err) => console.error(err));  
-
-  
+  }
+ 
   return(
     <div className='container'>
     <InputNavigation/>
     <TemperatureCard allValues= {allValues}/>
-    <Weekforecast></Weekforecast>
+    <Weekforecast todaysData ={todaysForecast} tmmrwData = {tmmrwsForecast} thirdDayData = {dayafterForecast} />
     
       
     </div> );

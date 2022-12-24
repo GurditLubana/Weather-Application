@@ -5,6 +5,7 @@ import SingleDayForecast from './SingleDayForecast';
 
 
 function Weekforecast(props) {
+  // console.log(props.tmmrwsData[0])
     return (
         <Tabs
         defaultActiveKey="profile"
@@ -12,14 +13,15 @@ function Weekforecast(props) {
         className="mb-3 mt-5"
         justify
       >
-        <Tab eventKey="home" title="Home">
-          
+        <Tab eventKey="yesterday" title="Yesterday">
+        <SingleDayForecast data = {props.tmmrwData}/>
         </Tab>
-        <Tab eventKey="profile" title="Profile">
-        <SingleDayForecast/>
+        <Tab eventKey="today" title="Today">
+        <SingleDayForecast data = {props.todaysData}/>
+        
         </Tab>
-        <Tab eventKey="longer-tab" title="Loooonger Tab">
-
+        <Tab eventKey="tommorow" title="Tommorow">
+        <SingleDayForecast data = {props.thirdDayData}/>
         </Tab>
        
       </Tabs>
