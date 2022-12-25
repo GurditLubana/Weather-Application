@@ -10,6 +10,7 @@ const getWeatherData = (infoType, parameter) => {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => data);
+    
 };
 const formatCurrentWeather = (data) => {
   const {
@@ -23,6 +24,7 @@ const formatCurrentWeather = (data) => {
       vis_km,
       feelslike_c,
       condition,
+      precip_mm
     },
   } = data;
 
@@ -40,6 +42,7 @@ const formatCurrentWeather = (data) => {
     uv,
     vis_km,
     feelslike_c,
+    precip_mm
   };
 };
 
@@ -52,6 +55,8 @@ const formatForecastWeather = (data) => {
     return {
       date: day.date,
       uv: day.day.uv,
+      maxTemp: day.day.maxtemp_c,
+      minTemp:day.day.mintemp_c,
       hour: day.hour.map((hour) =>
       {
         return {
