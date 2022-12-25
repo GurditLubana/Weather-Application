@@ -8,23 +8,24 @@ import Weekforecast from "./Weekforecast";
 function App() {
 
   const[weatherInfo,setWeatherInfo] =useState(null);
-  const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({ q: "Winnipeg" ,days:3});
-    setWeatherInfo(data);
-   
-  };
-
-  fetchWeather();
-
+  
+  useEffect(()=>{
+   const fetchWeather = async () => {
+     const data = await getFormattedWeatherData({ q: "Winnipeg" ,days:3});
+     setWeatherInfo(data);
+   };
  
+   fetchWeather();
+
+ },[])
 
   return (
     <div className="container">
       <InputNavigation />
       {weatherInfo && (
         <div>
-      <TemperatureCard  allValues = {weatherInfo}/>
-      {/* <Weekforecast todaysData ={todaysForecast} tmmrwData = {tmmrwsForecast} thirdDayData = {dayafterForecast} /> */}
+      <TemperatureCard  weatherInfo = {weatherInfo}/>
+      <Weekforecast weatherInfo = {weatherInfo} />
           </div>
       )}
     </div>

@@ -5,23 +5,27 @@ import SingleDayForecast from './SingleDayForecast';
 
 
 function Weekforecast(props) {
-  // console.log(props.tmmrwsData[0])
+  var week = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  let day = (new Date(props.weatherInfo[2].date)).getDay()
+  console.log();
+
     return (
+      
         <Tabs
-        defaultActiveKey="profile"
-        id="justify-tab-example"
-        className="mb-3 mt-5"
+        defaultActiveKey="today"
+       
+        className="mb-3 mt-5 py-3"
         justify
       >
-        <Tab eventKey="yesterday" title="Yesterday">
-        <SingleDayForecast data = {props.tmmrwData}/>
-        </Tab>
         <Tab eventKey="today" title="Today">
-        <SingleDayForecast data = {props.todaysData}/>
+        <SingleDayForecast dayInfo= {props.weatherInfo[0]}/>
+        </Tab>
+        <Tab eventKey="tmmrw" title="Tommorow">
+        <SingleDayForecast dayInfo= {props.weatherInfo[1]}/>
         
         </Tab>
-        <Tab eventKey="tommorow" title="Tommorow">
-        <SingleDayForecast data = {props.thirdDayData}/>
+        <Tab eventKey="thirdDay" title={week[day+1]}>
+        <SingleDayForecast dayInfo= {props.weatherInfo[2]}/>
         </Tab>
        
       </Tabs>

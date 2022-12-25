@@ -9,46 +9,46 @@ import Stack from "react-bootstrap/Stack";
 function TemperatureCard(props) {
   return (
     <Card style={{ width: "30rem" }}>
-      {/* <Card.Img variant="top" src={props.allValues.imgIcon} /> */}
+      {/* <Card.Img variant="top" src={props.weatherInfo.imgIcon} /> */}
 
-      <div className="py-3 mx-auto">{props.allValues.name}</div>
+      <div className="py-3 mx-auto">{props.weatherInfo.name}</div>
       <Card.Body>
         <Card.Title>
           <Stack direction="horizontal" gap={3}>
             <h1 className="ms-auto">
-              <img alt="weatherImage" src={props.allValues.icon}></img>
-              {props.allValues.temp_c}&deg;C
+              <img alt="weatherImage" src={props.weatherInfo.icon}></img>
+              {props.weatherInfo.temp_c}&deg;C
             </h1>
-            <h6 className="ms-auto">H{props.allValues[0].maxTemp}&deg;C</h6>
+            <h6 className="ms-auto">H{props.weatherInfo[0].maxTemp}&deg;C</h6>
             <div className="vr" />
-            <h6 className="bg-light">L{props.allValues[0].minTemp}&deg;C</h6>
+            <h6 className="bg-light">L{props.weatherInfo[0].minTemp}&deg;C</h6>
           </Stack>
         </Card.Title>
         <Card.Text>
-          Feels like:{props.allValues.feelslike_c}&deg;C
-          {props.allValues.text} weather
+          Feels like:{props.weatherInfo.feelslike_c}&deg;C
+          {props.weatherInfo.text} weather
         </Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>
           <Row>
-            <Col>Humidity:{props.allValues.humidity}%</Col>
-            <Col>Precipitation: {props.allValues.precip_mm}mm</Col>
+            <Col>Humidity:{props.weatherInfo.humidity}%</Col>
+            <Col>Precipitation: {props.weatherInfo.precip_mm}mm</Col>
           </Row>
         </ListGroup.Item>
         <ListGroup.Item>
           <Row>
-            <Col>Pressure: {props.allValues.pressure_in} in</Col>
-            <Col>Visibility: {props.allValues.vis_km} km</Col>
+            <Col>Pressure: {props.weatherInfo.pressure_in} in</Col>
+            <Col>Visibility: {props.weatherInfo.vis_km} km</Col>
           </Row>
         </ListGroup.Item>
         <ListGroup.Item>
           {" "}
           <Row>
-            <Col>Wind Speed: {props.allValues.wind_kph} km/h</Col>
+            <Col>Wind Speed: {props.weatherInfo.wind_kph} km/h</Col>
             <Col>
-              UV: {props.allValues.uv}
-              <ProgressBar variant="warning" now={parseInt(props.allValues.uv)*10} />
+              UV: {props.weatherInfo.uv}
+              <ProgressBar variant="warning" now={parseInt(props.weatherInfo.uv)*10} />
             </Col>
           </Row>
         </ListGroup.Item>

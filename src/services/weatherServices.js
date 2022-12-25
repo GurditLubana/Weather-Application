@@ -55,13 +55,14 @@ const formatForecastWeather = (data) => {
     return {
       date: day.date,
       uv: day.day.uv,
-      maxTemp: day.day.maxtemp_c,
+      maximumTemp: day.day.maxtemp_c,
       minTemp:day.day.mintemp_c,
       hour: day.hour.map((hour) =>
       {
         return {
           condition: hour.condition,
-          temp: hour.temp_c
+          temp: hour.temp_c,
+          time: hour.time
         }
       }),
     };

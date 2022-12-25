@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 function InputNavigation(props) {
+
+  const [cityNameInput,setCityInput] = useState("");
+
+  const onChangeInputHandler = (e)=>{
+
+    setCityInput(e.target.value);
+  }
+ 
   return (
     <div>
       <nav className ="navbar navbar-expand-lg bg-info my-3">
@@ -26,46 +35,18 @@ function InputNavigation(props) {
                   Home
                 </a>
               </li>
-              <li className ="nav-item dropdown">
-                <a
-                  className ="nav-link dropdown-toggle"
-                  href=" "
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className ="dropdown-menu">
-                  <li>
-                    <a className ="dropdown-item" href=" ">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className ="dropdown-item" href=" ">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className ="dropdown-divider"></hr>
-                  </li>
-                  <li>
-                    <a className ="dropdown-item" href=" ">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
-              </li>
+              
             </ul>
             <form className ="d-flex" role="search">
               <input
                 className ="form-control me-2"
                 type="search"
-                placeholder="Search"
+                value = {cityNameInput}
+                onChange={onChangeInputHandler}
+                placeholder="Search the city..."
                 aria-label="Search"
               />
-              <button className ="btn btn-outline-success" type="submit">
+              <button className ="btn bg-warning"  type="submit">
                 Search
               </button>
             </form>
@@ -77,3 +58,4 @@ function InputNavigation(props) {
 }
 
 export default InputNavigation;
+
