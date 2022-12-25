@@ -52,7 +52,7 @@ const formatForecastWeather = (data) => {
     return {
       date: day.date,
       uv: day.day.uv,
-      // hour: day.hour.slice(1, 4),
+      hour: day.hour.slice(0, 4),
     };
   });
 

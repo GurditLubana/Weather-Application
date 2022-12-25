@@ -7,7 +7,7 @@ import Weekforecast from "./Weekforecast";
 
 function App() {
   const fetchWeather = async () => {
-    const data = await getFormattedWeatherData({ q: "Winnipeg" });
+    const data = await getFormattedWeatherData({ q: "Winnipeg" ,days:3});
     console.log(data);
   };
 
