@@ -13,18 +13,18 @@ function Weekforecast(props) {
       
         <Tabs
         defaultActiveKey="today"
-        className="mb-3 mt-5 py-3"
         justify
+        className='tabs'
       >
-        <Tab eventKey="today" title="Today">
-        <SingleDayForecast id= "10" dayInfo= {props.weatherInfo[0]}/>
+        <Tab className="list" eventKey="today"  title="Today">
+        <SingleDayForecast className="tab_content" id= "10" dayInfo= {props.weatherInfo[0]}/>
         </Tab>
-        <Tab eventKey="tmmrw" title="Tommorow">
-        <SingleDayForecast id= "40" dayInfo= {props.weatherInfo[1]}/>
+        <Tab className="list" eventKey="tmmrw" title="Tommorow">
+        <SingleDayForecast className="tab_content" id= "40" dayInfo= {props.weatherInfo[1]}/>
         
         </Tab>
-        <Tab eventKey="thirdDay" title={week[day+1]}>
-        <SingleDayForecast id= "80" dayInfo= {props.weatherInfo[2]}/>
+        <Tab className="list" eventKey="thirdDay" title={week[day+1]}>
+        <SingleDayForecast className="tab_content" id= "80" dayInfo= {props.weatherInfo[2]}/>
         </Tab>
        
       </Tabs>

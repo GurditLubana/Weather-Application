@@ -4,9 +4,31 @@ body {
   font-family: 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: 'Catamaran', sans-serif;
 font-family: 'Roboto Slab', serif;
+}
+
+.align_center
+{
+  text-align: center;
+}
+
+.list
+{
+  overflow-x:scroll;
+  background-color: #3a3e71;
+  
+}
+.navBar{
+
+  background-color:transparent;
+}
+
+.tabs
+{
+  margin-top: 10%;
 }

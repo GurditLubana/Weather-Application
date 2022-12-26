@@ -11,7 +11,7 @@ function SingleDayForecast(props) {
     time = (hourInfo.time).slice(11);
     return (
 
-          <ListGroup.Item key = {ids++} className="mx-2 ">
+          <ListGroup.Item key = {ids++} className="mx-2">
             <HourlyForecast temp={hourInfo.temp} time={time} imgSrc = {hourInfo.condition.icon}/>
           </ListGroup.Item>
 
