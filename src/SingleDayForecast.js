@@ -4,15 +4,14 @@ import HourlyForecast from "./HourlyForecast";
 
 function SingleDayForecast(props) {
  
-  let key = 0;
+ let ids = parseInt(props.id);
   var time = "";
-  console.log(props.dayInfo.hour);
   let forecast = props.dayInfo.hour.map((hourInfo)=>
   {
     time = (hourInfo.time).slice(11);
     return (
 
-          <ListGroup.Item className="mx-2 ">
+          <ListGroup.Item key = {ids++} className="mx-2 ">
             <HourlyForecast temp={hourInfo.temp} time={time} imgSrc = {hourInfo.condition.icon}/>
           </ListGroup.Item>
 
@@ -21,7 +20,7 @@ function SingleDayForecast(props) {
   )
   return (
   
-    <ListGroup key= {key++} horizontal="sm" className="my-2">
+    <ListGroup key= {ids} horizontal="sm" className="my-2">
       {forecast}
     </ListGroup>
 

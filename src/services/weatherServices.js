@@ -55,7 +55,7 @@ const formatForecastWeather = (data) => {
     return {
       date: day.date,
       uv: day.day.uv,
-      maximumTemp: day.day.maxtemp_c,
+      maxTemp: day.day.maxtemp_c,
       minTemp:day.day.mintemp_c,
       hour: day.hour.map((hour) =>
       {

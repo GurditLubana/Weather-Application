@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import InputNavigation from "./InputNavigation";
+import InputNavigation, {cityName} from "./InputNavigation";
 import getFormattedWeatherData from "./services/weatherServices";
 import TemperatureCard from "./TemperatureCard";
 import Weekforecast from "./Weekforecast";
@@ -11,8 +11,9 @@ function App() {
   
   useEffect(()=>{
    const fetchWeather = async () => {
-     const data = await getFormattedWeatherData({ q: "Winnipeg" ,days:3});
+     const data = await getFormattedWeatherData({ q: cityName,days:3});
      setWeatherInfo(data);
+     
    };
  
    fetchWeather();

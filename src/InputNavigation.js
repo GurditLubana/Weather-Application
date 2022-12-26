@@ -3,12 +3,21 @@ import React, { useState } from "react";
 
 function InputNavigation(props) {
 
-  const [cityNameInput,setCityInput] = useState("");
+ const [cityNameInput,setCityInput] = useState("");
 
   const onChangeInputHandler = (e)=>{
 
     setCityInput(e.target.value);
+    
   }
+
+  const onSubmitHandler = ()=>
+  {
+    console.log(cityNameInput)
+    cityName = cityNameInput;
+    console.log(cityName);
+  }
+
  
   return (
     <div>
@@ -37,8 +46,8 @@ function InputNavigation(props) {
               </li>
               
             </ul>
-            <form className ="d-flex" role="search">
-              <input
+            <form className ="d-flex" role="search" onSubmit={onSubmitHandler}>
+              <input id = "cityNameId"
                 className ="form-control me-2"
                 type="search"
                 value = {cityNameInput}
@@ -58,4 +67,4 @@ function InputNavigation(props) {
 }
 
 export default InputNavigation;
-
+export let cityName = "chandigarh"

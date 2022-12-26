@@ -11,7 +11,7 @@ function TemperatureCard(props) {
     <Card style={{ width: "30rem" }}>
       {/* <Card.Img variant="top" src={props.weatherInfo.imgIcon} /> */}
 
-      <div className="py-3 mx-auto">{props.weatherInfo.name}</div>
+      <div className="py-3 mx-auto">{props.weatherInfo.name}, {props.weatherInfo.country}</div>
       <Card.Body>
         <Card.Title>
           <Stack direction="horizontal" gap={3}>
