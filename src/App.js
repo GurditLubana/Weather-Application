@@ -23,11 +23,11 @@ function App() {
  },[cityName])
 
   return (
-    <div className="container">
+    <div className="container" style={{ width: "60rem" }}>
       <InputNavigation  setCityName= {setCityName}/>
       {weatherInfo && (
         <div>
-      <TemperatureCard  weatherInfo = {weatherInfo}/>
+      <TemperatureCard  weatherInfo = {weatherInfo} />
       <Weekforecast weatherInfo = {weatherInfo} />
           </div>
       )}

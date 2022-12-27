@@ -3,70 +3,117 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ProgressBar from "react-bootstrap/ProgressBar";
-
+import {WiHumidity, WiRain,WiThermometer,WiDayFog, WiWindBeaufort0,WiHot} from "react-icons/wi";
 import Stack from "react-bootstrap/Stack";
 
 function TemperatureCard(props) {
-  const  todaysDate = new Date().toString();
-  const day = todaysDate.substring(0,4);
-  const date = todaysDate.substring(4,16);
-  const currentTime = todaysDate.substring(16,21);
- 
+  var week = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const formattedTime = (time) => {
+    let hour = parseInt(time.substring(0, 2));
+    if (hour > 12) {
+      hour = hour - 12;
+      time = hour + time.substring(2) + " PM";
+    } else {
+      time = time + " AM";
+    }
+
+    return time;
+  };
+  const localDate = props.weatherInfo.localtime;
+  const year = localDate.substring(0, 4);
+  const month = months[parseInt(localDate.substring(5, 7)) - 1];
+  const date = localDate.substring(8, 10);
+  const fullDate = date + " " + month + " " + year;
+  const day = week[parseInt(new Date(fullDate).getDay())];
+  const currentTime = formattedTime(localDate.substring(11));
+
   return (
-    <Card className="mx-auto my-3" style={{ width: "30rem" }}>
-      
-      <h2 className="py-3 my-1 mx-auto">{props.weatherInfo.name}, {props.weatherInfo.country}</h2>
-      <Card.Body >
+    <Card className="mx-auto my-3 temp-card" style={{ width: "30rem" }}>
+      <h2 className="py-3 my-1 mx-auto">
+        {props.weatherInfo.name}, {props.weatherInfo.country}
+      </h2>
+      <Card.Body>
         <div className="align_center">
-       <h4>{day}, {date}| {currentTime}</h4> 
-      <h5 className="mt-4">{props.weatherInfo.text}</h5>
+          <h5>
+            {day}, {fullDate} | {currentTime}
+          </h5>
+          <h5 className="mt-4">{props.weatherInfo.text}</h5>
         </div>
         <Card.Title>
           <Stack direction="horizontal" gap={3}>
-            <h1 className="mx-auto mt-3 align_center">
-              <img alt="weatherImage" src={props.weatherInfo.icon}></img>
+            <h1 className="mx-auto  align_center">
+              <img alt="weatherImage" src={props.weatherInfo.icon} style={{ width: "8rem", height:"8rem" }}></img>
               {props.weatherInfo.temp_c}&deg;C
             </h1>
-           
           </Stack>
         </Card.Title>
-        {/* <Card.Text className= "align_center"> */}
-        <Stack direction="horizontal" gap={3}>
+      <h6>
 
-          Feels like: {props.weatherInfo.feelslike_c}&deg;C 
+        <Stack direction="horizontal" gap={3}>
+          Feels like: {props.weatherInfo.feelslike_c}&deg;C
           <div className="vr" />
-          H: {props.weatherInfo[0].maxTemp}&deg;C 
+          High: {props.weatherInfo[0].maxTemp}&deg;C
           <div className="vr" />
-           L: {props.weatherInfo[0].minTemp}&deg;C
+          Low: {props.weatherInfo[0].minTemp}&deg;C
+          <div className="vr" />
+          Sunrise: {props.weatherInfo[0].sunrise}
+          <div className="vr" />
+          Sunset: {props.weatherInfo[0].sunset}
         </Stack>
-          
-        {/* </Card.Text> */}
+      </h6>
+
       </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>
+      <ListGroup className="list-group-flush my-3">
+        <ListGroup.Item className="temp-card">
           <Row>
-            <Col>Humidity: {props.weatherInfo.humidity}%</Col>
-            <Col>Precipitation: {props.weatherInfo.precip_mm}mm</Col>
+            <Col><h5><span><WiHumidity/></span> Humidity: {props.weatherInfo.humidity}%</h5></Col>
+            <Col><h5><span><WiRain/></span> Precipitation: {props.weatherInfo.precip_mm}mm</h5></Col>
           </Row>
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item  className="temp-card">
           <Row>
-            <Col>Pressure: {props.weatherInfo.pressure_in} in</Col>
-            <Col>Visibility: {props.weatherInfo.vis_km} km</Col>
+            <Col><h5><span><WiThermometer/></span> Pressure: {props.weatherInfo.pressure_in} in</h5></Col>
+            <Col><h5><span><WiDayFog/></span> Visibility: {props.weatherInfo.vis_km} km</h5></Col>
           </Row>
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item  className="temp-card">
           {" "}
           <Row>
-            <Col>Wind Speed: {props.weatherInfo.wind_kph} km/h</Col>
-            <Col>
-              UV: {props.weatherInfo.uv}
-              <ProgressBar variant="warning" now={parseInt(props.weatherInfo.uv)*10} />
-            </Col>
+            <Col><h5><span><WiWindBeaufort0/></span>Wind: {props.weatherInfo.wind_kph} km/h</h5></Col>
+            <Col ><h5><span><WiHot/></span>
+               UV index: {props.weatherInfo.uv}
+              <ProgressBar
+                variant="warning"
+                now={parseInt(props.weatherInfo.uv) * 10}
+                className="mt-3"
+              />
+            </h5></Col>
           </Row>
         </ListGroup.Item>
       </ListGroup>
-      <Card.Body></Card.Body>
+      
     </Card>
   );
 }
