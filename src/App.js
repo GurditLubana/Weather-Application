@@ -8,7 +8,7 @@ import Weekforecast from "./Weekforecast";
 function App() {
 
   const[weatherInfo,setWeatherInfo] =useState(null);
-  const[cityName,setCityName]= useState("Winnipeg")
+  const[cityName,setCityName]= useState("Calgary")
   
   useEffect(()=>{
    const fetchWeather = async () => {
