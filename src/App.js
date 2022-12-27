@@ -20,7 +20,7 @@ function App() {
  
    fetchWeather();
 
- })
+ },[cityName])
 
   return (
     <div className="container" style={{ width: "60rem" }}>
