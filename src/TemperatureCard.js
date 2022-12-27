@@ -50,7 +50,7 @@ function TemperatureCard(props) {
   const currentTime = formattedTime(localDate.substring(11));
 
   return (
-    <Card className="mx-auto my-3 temp-card" style={{ width: "30rem" }}>
+    <Card className="mx-auto my-3 temp-card" style={{ width: "55rem" }}>
       <h2 className="py-3 my-1 mx-auto">
         {props.weatherInfo.name}, {props.weatherInfo.country}
       </h2>
@@ -69,7 +69,7 @@ function TemperatureCard(props) {
             </h1>
           </Stack>
         </Card.Title>
-      <h6>
+      <h5>
 
         <Stack direction="horizontal" gap={3}>
           Feels like: {props.weatherInfo.feelslike_c}&deg;C
@@ -82,14 +82,14 @@ function TemperatureCard(props) {
           <div className="vr" />
           Sunset: {props.weatherInfo[0].sunset}
         </Stack>
-      </h6>
+      </h5>
 
       </Card.Body>
       <ListGroup className="list-group-flush my-3">
         <ListGroup.Item className="temp-card">
           <Row>
             <Col><h5><span><WiHumidity/></span> Humidity: {props.weatherInfo.humidity}%</h5></Col>
-            <Col><h5><span><WiRain/></span> Precipitation: {props.weatherInfo.precip_mm}mm</h5></Col>
+            <Col><h5><span><WiRain/></span> Precipitation: {props.weatherInfo.precip_mm} mm</h5></Col>
           </Row>
         </ListGroup.Item>
         <ListGroup.Item  className="temp-card">
