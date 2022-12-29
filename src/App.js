@@ -23,7 +23,7 @@ function App() {
  },[cityName])
 
   return (
-    <div className="container" style={{ width: "60rem" }}>
+    <div className="container" style={{ width: "90%" }}>
       <InputNavigation  setCityName= {setCityName}/>
       {weatherInfo && (
         <div>

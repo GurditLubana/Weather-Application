@@ -50,7 +50,7 @@ function TemperatureCard(props) {
   const currentTime = formattedTime(localDate.substring(11));
 
   return (
-    <Card className="mx-auto my-3 temp-card" style={{ width: "55rem" }}>
+    <Card className="mx-auto my-3 temp-card" style={{ width: "90%" }}>
       <h2 className="py-3 my-1 mx-auto">
         {props.weatherInfo.name}, {props.weatherInfo.country}
       </h2>
@@ -65,7 +65,7 @@ function TemperatureCard(props) {
           <Stack direction="horizontal" gap={3}>
             <h1 className="mx-auto  align_center">
               <img alt="weatherImage" src={props.weatherInfo.icon} style={{ width: "8rem", height:"8rem" }}></img>
-              {props.weatherInfo.temp_c}&deg;C
+              {props.weatherInfo.temp_c} &deg;C
             </h1>
           </Stack>
         </Card.Title>
