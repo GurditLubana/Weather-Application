@@ -50,7 +50,7 @@ function TemperatureCard(props) {
   const currentTime = formattedTime(localDate.substring(11));
 
   return (
-    <Card className="mx-auto my-3 temp-card" style={{ width: "65%" }}>
+    <Card className="mx-auto my-3 temp-card" style={{ width: "70%" , flexWrap: "nowrap"}}>
       <h2 className="py-3 my-1 mx-auto">
         {props.weatherInfo.name}, {props.weatherInfo.country}
       </h2>
