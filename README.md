@@ -1,4 +1,7 @@
-# Weather App
+![1](weatherApp.gif)
+
+
+# Title: **Weather App**
 
 ## Purpose
 ## Prerequisite
