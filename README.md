@@ -6,7 +6,9 @@
 ## Purpose
 ## Prerequisite
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Deployment
+![deployment](https://garrys-weather-app.netlify.app/)
+
 
 ## Available Scripts
 
@@ -29,4 +31,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
